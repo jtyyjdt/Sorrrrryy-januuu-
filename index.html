@@ -1,0 +1,508 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Janu ❤️</title>  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #3a0b25 0%, #1a0615 45%, #09030a 100%);
+
+      min-height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #141e30, #243b55, #1b2735);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      color: white;
+      position: relative;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
+    }
+
+    .petal {
+      position: absolute;
+      top: -20px;
+      font-size: 18px;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(115vh) rotate(360deg);
+      }
+    }
+
+    @keyframes rocketRise {
+      0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+      }
+      15% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.1);
+        opacity: 0;
+      }
+    }
+    }
+
+    .card {
+      border-radius: 42px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.55), 0 0 35px rgba(255,143,171,0.28), inset 0 1px 0 rgba(255,255,255,0.22);
+      backdrop-filter: blur(35px);
+      -webkit-backdrop-filter: blur(35px);
+
+      border-radius: 36px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05));
+      backdrop-filter: blur(28px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 25px rgba(255,143,171,0.22);
+
+      width: 100%;
+      max-width: 390px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border-radius: 34px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.45), inset 0 1px 1px rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+      animation: floatCard 4s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #ffd6e5;
+      text-shadow: 0 0 12px #ff8fab;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 0.92rem;
+      color: #f5d9e2;
+      line-height: 1.5;
+      margin-bottom: 26px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      min-height: 60px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 11px 24px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    #yesBtn {
+      background: linear-gradient(135deg, #ff8fab, #ff5d8f);
+      color: white;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.05);
+    }
+
+    #noBtn {
+      background: rgba(255,255,255,0.9);
+      color: #ff4d6d;
+      position: relative;
+    }
+
+    #letterBox {
+      display: none;
+      margin-top: 18px;
+      text-align: left;
+      background: rgba(255,255,255,0.06);
+      border-radius: 22px;
+      padding: 18px 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      max-height: none;
+      overflow: visible;
+      animation: fadeIn 0.8s ease;
+    }
+
+    #letterBox::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    #letterBox::-webkit-scrollbar-thumb {
+      background: #ff8fab;
+      border-radius: 10px;
+    }
+
+    .letter-title {
+      text-align: center;
+      color: #ffd6e5;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+
+    .letter-text {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: #f4f4f4;
+    }
+
+    .heart {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-top: 14px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .petals span {
+      position: absolute;
+      top: -10%;
+      width: 14px;
+      height: 14px;
+      background: rgba(255,182,193,0.85);
+      border-radius: 50% 0 50% 50%;
+      transform: rotate(45deg);
+      animation: fall linear infinite;
+      box-shadow: 0 0 12px rgba(255,182,193,0.8);
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(115vh) rotate(360deg);
+      }
+    }
+.card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.16) 50%, transparent 80%);
+      transform: translateX(-100%);
+      animation: shine 6s infinite;
+      pointer-events: none;
+    }
+
+    .title {
+      text-shadow: 0 0 18px rgba(255,182,193,0.9), 0 0 35px rgba(255,143,171,0.6), 0 0 70px rgba(255,255,255,0.35);
+      letter-spacing: 1.5px;
+      animation: titleGlow 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      from { transform: scale(1); opacity: 0.9; }
+      to { transform: scale(1.03); opacity: 1; }
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+</style></head>
+<body>
+<div class="petals"></div>  <audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>  <div class="card">
+    <h1>Janu... Maaf Kar Do Na? ❤️</h1>
+    <div class="subtitle">Kal raat tumne mujhe online bulaya tha...<br>aur main nahi aa paya. Mujhe pata hai tumhe kitna bura laga hoga 🥺</div><div class="buttons" id="buttonArea">
+  <button id="yesBtn">Yes 💖</button>
+  <button id="noBtn">No 🙈</button>
+</div>
+
+<div id="card2" style="display:none; margin-top:18px; background:rgba(255,255,255,0.07); border-radius:28px; padding:18px; animation:fadeIn 0.8s ease; border:1px solid rgba(255,255,255,0.12);">
+  <div style="font-size:1rem; color:#ffd6e5; margin-bottom:10px;">Ek Aur Baat... 💖</div>
+  <div style="font-size:0.86rem; line-height:1.6; color:#f4f4f4;">
+    Kal raat tumne bulaya tha aur main nahi aa paya... bas issi baat ka mujhe bohot regret hai 🥺
+  </div>
+  <div style="margin-top:14px; text-align:center;">
+    <button id="nextBtn" style="background:linear-gradient(135deg,#ff8fab,#ff5d8f); color:white; border-radius:999px; padding:10px 22px;">Next 💖</button> style="background:linear-gradient(135deg,#ff8fab,#ff5d8f); color:white; border-radius:999px; padding:10px 22px;">One More Thing 💌</button>
+  </div>
+</div>
+
+<div id="letterBox" style="display:none; margin-top:18px; background:rgba(255,255,255,0.08); border-radius:30px; padding:20px; animation:fadeIn 1s ease; border:1px solid rgba(255,255,255,0.12); text-align:left; max-height:55vh; overflow-y:auto;">
+  <div class="letter-title">My Dearest Janu,</div>
+  <div class="letter-text">
+    Kal raat tumne mujhe online bulaya tha... aur main nahi aa paya. Mujhe pata hai tumhe bura laga hoga. Bas itna kehna chahta hoon ki tum mere liye bohot important ho, aur mujhe bohot regret hai ki main tumhare paas nahi tha.
+    <br><br>
+    Please mujhe maaf kar do... next time tum bulaogi toh main sabse pehle tumhare paas aaunga. ❤️
+  </div>
+  <div class="heart">❤️</div>
+</div>
+
+<div id="continueWrap" style="display:none; text-align:center; margin-top:14px;">
+  <button id="continueBtn" style="background:linear-gradient(135deg,#ff8fab,#ff5d8f); color:white; border:none; border-radius:999px; padding:10px 22px; font-size:0.9rem;">Next 💖</button>
+</div>
+
+<div id="card3" style="display:none; margin-top:18px; background:rgba(255,255,255,0.08); border-radius:30px; padding:20px; animation:fadeIn 1s ease; border:1px solid rgba(255,255,255,0.12); text-align:center;">
+  <div style="font-size:1rem; color:#ffd6e5; margin-bottom:12px;">Please Maaf Kar Do Na 🥺</div>
+  <div style="font-size:0.88rem; line-height:1.8; color:#f4f4f4;">
+    Main promise karta hoon... next time tum bulaogi, toh main sabse pehle tumhare paas aaunga. Kyunki tum sirf important nahi ho... tum meri sabse favourite feeling ho. 💖
+  </div>
+  <div style="margin-top:16px; animation: beat 1s infinite; font-size:1.8rem;">🌸❤️🌸</div>
+  <div style="margin-top:16px; text-align:center;">
+    <button id="finalBtn" style="background:linear-gradient(135deg,#ff8fab,#ff5d8f); color:white; border-radius:999px; padding:10px 22px;">One Last Question 💌</button>
+  </div>
+</div>
+
+<div id="card4" style="display:none; margin-top:18px; background:rgba(255,255,255,0.08); border-radius:30px; padding:20px; animation:fadeIn 1s ease; border:1px solid rgba(255,255,255,0.12); text-align:center;">
+  <div style="font-size:1rem; color:#ffd6e5; margin-bottom:14px;">Pakka Maaf Kar Diya Na? 🥺💖</div>
+  <div style="display:flex; justify-content:center; gap:14px; margin-top:10px;">
+    <button id="yes1" style="background:linear-gradient(135deg,#ff8fab,#ff5d8f); color:white; border-radius:999px; padding:10px 22px;">Yes 💖</button>
+    <button id="yes2" style="background:rgba(255,255,255,0.9); color:#ff4d6d; border-radius:999px; padding:10px 22px;">Yes 🌸</button>
+  </div>
+</div>
+
+<div id="thankYou" style="display:none; margin-top:18px; background:rgba(255,255,255,0.1); border-radius:30px; padding:22px; animation:fadeIn 1s ease; border:1px solid rgba(255,255,255,0.12); text-align:center; overflow:hidden; position:relative;">
+  <div style="font-size:1.2rem; color:#ffd6e5; margin-bottom:10px;">Thank Youuuu ❤️</div>
+  <div style="font-size:0.9rem; color:#f4f4f4; line-height:1.8;">
+    Mujhe maaf karne ke liye thank you... tum meri sabse favourite feeling ho, aur main promise karta hoon ki tumhe hamesha special feel karwaunga 💖
+  </div>
+  <canvas id="fireworks" style="position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:1; opacity:0; transition:opacity 1s ease;"></canvas>
+</div>
+
+  </div>  <script>
+window.onload = function () {
+  const petals = document.querySelector('.petals');
+  for (let i = 0; i < 20; i++) {
+    const p = document.createElement('span');
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = 6 + Math.random() * 8 + 's';
+    p.style.animationDelay = Math.random() * 5 + 's';
+    petals.appendChild(p);
+  }
+
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const buttonArea = document.getElementById('buttonArea');
+  const subtitle = document.querySelector('.subtitle');
+
+  const card2 = document.getElementById('card2');
+  const nextBtn = document.getElementById('nextBtn');
+
+  const letterBox = document.getElementById('letterBox');
+  const continueWrap = document.getElementById('continueWrap');
+  const continueBtn = document.getElementById('continueBtn');
+
+  const card3 = document.getElementById('card3');
+  const finalBtn = document.getElementById('finalBtn');
+
+  const card4 = document.getElementById('card4');
+  const yes1 = document.getElementById('yes1');
+  const yes2 = document.getElementById('yes2');
+
+  const thankYou = document.getElementById('thankYou');
+
+  // Music autoplay on first tap/click
+  const music = document.getElementById('bgMusic');
+
+  document.addEventListener('click', () => {
+    if (music) {
+      music.play().catch(() => {});
+    }
+  }, { once: true });
+
+  // No button moving
+  let noCount = 0;
+  noBtn.onclick = () => {
+    noCount++;
+
+    if (noCount < 4) {
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = Math.random() * 60 + '%';
+      noBtn.style.top = Math.random() * 30 + 'px';
+    } else {
+      noBtn.style.display = 'none';
+      yesBtn.innerHTML = 'Only This One 💖';
+      yesBtn.style.transform = 'scale(1.08)';
+    }
+  };
+
+  // First yes
+  yesBtn.onclick = () => {
+    buttonArea.style.display = 'none';
+    subtitle.style.display = 'none';
+    card2.style.display = 'block';
+  };
+
+  // Card 2 -> Letter
+  nextBtn.onclick = () => {
+    card2.style.display = 'none';
+    letterBox.style.display = 'block';
+    continueWrap.style.display = 'block';
+  };
+
+  // Letter -> Card 3
+  continueBtn.onclick = () => {
+    letterBox.style.display = 'none';
+    continueWrap.style.display = 'none';
+    card3.style.display = 'block';
+  };
+
+  // Card 3 -> Card 4
+  finalBtn.onclick = () => {
+    card3.style.display = 'none';
+    card4.style.display = 'block';
+  };
+
+  // Final yes buttons
+  function openThankYou() {
+    card4.style.display = 'none';
+    thankYou.style.display = 'block';
+    startFireworks();
+  }
+
+  yes1.onclick = openThankYou;
+  yes2.onclick = openThankYou;
+
+  // Fireworks background
+  function startFireworks() {
+    const petals = document.querySelector('.petals');
+    petals.innerHTML = '';
+
+    // rising fireworks trails from bottom to top
+    setInterval(() => {
+      const trail = document.createElement('span');
+      trail.style.position = 'absolute';
+      trail.style.left = Math.random() * 100 + 'vw';
+      trail.style.bottom = '-80px';
+      trail.style.width = '6px';
+      trail.style.height = 40 + Math.random() * 60 + 'px';
+      trail.style.borderRadius = '999px';
+      trail.style.background = 'linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,143,171,1))';
+      trail.style.boxShadow = '0 0 25px rgba(255,143,171,1), 0 0 50px rgba(255,255,255,0.8), 0 0 80px rgba(255,93,143,0.7)';
+      trail.style.animation = 'rocketRise 3.2s linear forwards';
+      petals.appendChild(trail);
+
+      setTimeout(() => {
+        trail.remove();
+      }, 3200);
+    }, 180);
+
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.opacity = '1';
+
+    const particles = [];
+
+    function createBurst() {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height * 0.6;
+      const colors = ['#ff8fab', '#ffd6e5', '#ffffff', '#ffc2d1', '#ffb3c6', '#ffe5ec'];
+
+      for (let i = 0; i < 45; i++) {
+        particles.push({
+          x: x,
+          y: y,
+          dx: (Math.random() - 0.5) * 8,
+          dy: (Math.random() - 0.5) * 8,
+          size: Math.random() * 3 + 2,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          life: 70
+        });
+      }
+    }
+
+    let burstCount = 0;
+    const burstInterval = setInterval(() => {
+      createBurst();
+      burstCount++;
+      // keep fireworks running continuously
+      if (burstCount > 999999) clearInterval(burstInterval);
+    }, 600);
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+
+        ctx.save();
+        ctx.globalAlpha = p.life / 70;
+        ctx.fillStyle = p.color;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        p.x += p.dx;
+        p.y += p.dy;
+        p.dy += 0.03;
+        p.life--;
+
+        if (p.life <= 0) particles.splice(i, 1);
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+};
+</script></body>
+</html>
